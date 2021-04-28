@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
 .Card {
 	background-color: white;
 	display: flex;
@@ -38,6 +38,7 @@
 	}
 	button {
 		margin: 15px;
+		font-family: 'Raleway', sans-serif;
 		background-color: transparent;
 		padding: 5px;
 		font-size: 17px;

@@ -1,12 +1,12 @@
-const Card = ({ product }) => {
+const Card = ({ product, handleClickInfo }) => {
 	return (
 		<div className="Card">
 			<div>
-				<img src={product.thumbnail} />
+				<img alt={product.title} src={product.thumbnail} />
 			</div>
 			<h2>{product.title}</h2>
 			<p>${product.price}</p>
-			<button>Ver más</button>
+			<button onClick={handleClickInfo}>Ver más</button>
 		</div>
 	);
 };

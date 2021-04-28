@@ -1,0 +1,18 @@
+.Logo {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	left: 5px;
+	bottom: 5px;
+	top: 5px;
+	@media (max-width: 600px) {
+		position: relative;
+		opacity: 0.3;
+		justify-content: center;
+	}
+	img {
+		border-radius: 10%;
+		width: 100px;
+		position: absolute;
+	}
+}
