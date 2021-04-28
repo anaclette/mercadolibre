@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+.Search {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	background: dodgerblue linear-gradient(45deg, aqua, dodgerblue, deeppink) fixed;
+	input {
+		width: 300px;
+		padding: 8px;
+		border: none;
+		margin: 10px;
+		font-family: 'Nanum Pen Script', cursive;
+		font-size: 27px;
+		color: rgb(17, 83, 148);
+
+		&:focus {
+			outline: none;
+			border-bottom: 2px solid deeppink;
+		}
+	}
+	button {
+		margin: 15px;
+		padding: 10px;
+		width: 80px;
+		color: rgb(23, 104, 185);
+		background-color: white;
+		font-size: 23px;
+		cursor: pointer;
+		border-radius: 8%;
+		font-weight: bold;
+		box-shadow: 5px 5px #b1afaf;
+		border: 0;
+		font-family: 'Nanum Pen Script', cursive;
+		&:active {
+			transform: translate(0em, 0.50em);
+			font-size: 25px;
+			box-shadow: 3px 4px #b1afaf;
+			letter-spacing: 1px;
+		}
+		&:hover {
+			letter-spacing: 1px;
+		}
+	}
+}

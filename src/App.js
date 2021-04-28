@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Card from './components/ProductCard';
+import Search from './components/Search';
 import './App.css';
+import './components/Search.scss';
+import './components/Card.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const [ products, setProducts ] = useState([]);
+	const [ search, setSearch ] = useState('');
+	const [ value, setValue ] = useState([]);
+
+	useEffect(
+		() => {
+			fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${value}`).then((res) => res.json()).then((info) => {
+				setProducts(info.results);
+			});
+		},
+		[ search, value ]
+	);
+
+	const handleClick = () => {
+		setSearch(value);
+	};
+
+	const handleOnChange = (e) => {
+		console.log('estas buscando', e.target.value);
+		setValue(e.target.value);
+	};
+
+	return (
+		<div>
+			<Search inputValue={value} handleClick={handleClick} handleOnChange={handleOnChange} />
+			<div className="App">
+				{products.map((product) => {
+					return <Card key={product.id} product={product} />;
+				})};
+			</div>
+		</div>
+	);
+};
 
 export default App;
