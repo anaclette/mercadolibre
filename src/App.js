@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './components/ProductCard';
 import Search from './components/Search';
 import Logo from './components/Logo';
+import Details from './components/Details';
 import LogoImg from './components/LogoML.png';
 import './App.css';
 import './components/Search.scss';
@@ -11,8 +12,10 @@ import './components/Logo.scss';
 const App = () => {
 	const [ products, setProducts ] = useState([]);
 	const [ search, setSearch ] = useState('');
-	const [ value, setValue ] = useState([]);
+	const [ value, setValue ] = useState('');
 	const [ id, setId ] = useState('');
+	const [ view, setView ] = useState('search');
+	// const [ cardDetails, setCardDetails ] = useState('');
 
 	useEffect(
 		() => {
@@ -20,7 +23,7 @@ const App = () => {
 				setProducts(info.results);
 			});
 		},
-		[ search, value, id ]
+		[ search, id ]
 	);
 
 	const handleClick = () => {
@@ -28,21 +31,46 @@ const App = () => {
 	};
 
 	const handleOnChange = (e) => {
-		console.log('estas buscando', e.target.value);
+		e.preventDefault();
+		// console.log('estas buscando', e.target.value);
 		setValue(e.target.value);
 	};
 
-	const handleClickInfo = () => {
-		setId(console.log('queres ver info del producto'));
+	const handleClickInfo = (id) => {
+		setId(id);
+		setView('detail');
+	};
+
+	// useEffect(
+	// 	() => {
+	// 		fetch(`https://api.mercadolibre.com/items/${id}`).then((res) => res.json()).then((info) => {
+	// 			setCardDetails(info.results);
+	// 		});
+	// 	},
+	// 	[ id ]
+	// );
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setSearch(value);
 	};
 
 	return (
 		<div>
 			<Logo logo={LogoImg} />
-			<Search inputValue={value} handleClick={handleClick} handleOnChange={handleOnChange} />
+			<Search
+				handleSubmit={handleSubmit}
+				inputValue={value}
+				handleClick={handleClick}
+				handleOnChange={handleOnChange}
+			/>
 			<div className="App">
 				{products.map((product) => {
-					return <Card handleClickInfo={handleClickInfo} key={product.id} product={product} />;
+					return view === 'search' ? (
+						<Card handleClickInfo={handleClickInfo} key={product.id} product={product} />
+					) : (
+						<Details key={product.id} id={product.id} />
+					);
 				})};
 			</div>
 		</div>
