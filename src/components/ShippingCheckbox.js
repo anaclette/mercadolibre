@@ -1,9 +1,9 @@
 const ShippingCheckbox = () => {
 	return (
-		<label>
-			Envio gratuito
-			<input type="checkbox" />
-		</label>
+		<div>
+			<h4>Costo de envío</h4>
+			<p>Gratis</p>
+		</div>
 	);
 };
 

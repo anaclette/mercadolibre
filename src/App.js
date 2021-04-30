@@ -6,6 +6,9 @@ import Detail from './components/Detail';
 import LogoImg from './components/LogoML.png';
 import ShippingCheckbox from './components/ShippingCheckbox';
 import LocationOptions from './components/LocationOptions';
+import Cost from './components/Cost';
+import Condition from './components/Condition';
+import Brand from './components/Brand';
 import './App.css';
 import './components/Search.scss';
 import './components/Card.scss';
@@ -85,6 +88,9 @@ const App = () => {
 				<div className="Filters">
 					<ShippingCheckbox />
 					<LocationOptions handleChangeSelect={handleChangeSelect} />
+					<Cost />
+					<Condition />
+					<Brand />
 				</div>
 				<div className="App">
 					{view === 'search' && <Results products={products} handleClickInfo={handleClickInfo} />}
