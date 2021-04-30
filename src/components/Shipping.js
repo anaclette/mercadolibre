@@ -1,4 +1,4 @@
-const ShippingCheckbox = () => {
+const Shipping = () => {
 	return (
 		<div>
 			<h4>Costo de envío</h4>
@@ -7,4 +7,4 @@ const ShippingCheckbox = () => {
 	);
 };
 
-export default ShippingCheckbox;
+export default Shipping;

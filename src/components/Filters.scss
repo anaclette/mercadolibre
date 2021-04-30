@@ -31,9 +31,6 @@
 		font-family: 'Raleway', sans-serif;
 		flex-basis: 150px;
 		background-color: rgb(111, 175, 240);
-		@media (max-width: 900px) {
-			// font-size: 12px;
-		}
 		select,
 		input {
 			@extend %input-size;

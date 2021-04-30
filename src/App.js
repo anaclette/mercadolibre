@@ -4,7 +4,7 @@ import Search from './components/Search';
 import Logo from './components/Logo';
 import Detail from './components/Detail';
 import LogoImg from './components/LogoML.png';
-import ShippingCheckbox from './components/ShippingCheckbox';
+import Shipping from './components/Shipping';
 import LocationOptions from './components/LocationOptions';
 import Cost from './components/Cost';
 import Condition from './components/Condition';
@@ -63,7 +63,7 @@ const App = () => {
 	// useEffect(() => {
 	// 	fetch(`https://api.mercadolibre.com/items/${id}description`).then((res) => res.json()).then((info) => {
 	// 		setView(info);
-	// 	}, [ view ]);
+	// 	}, [ id, view ]);
 	// });
 
 	const handleSubmit = (e) => {
@@ -86,7 +86,7 @@ const App = () => {
 			<Logo logo={LogoImg} />
 			<section className="Content">
 				<div className="Filters">
-					<ShippingCheckbox />
+					<Shipping />
 					<LocationOptions handleChangeSelect={handleChangeSelect} />
 					<Cost />
 					<Condition />
