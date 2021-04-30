@@ -5,6 +5,10 @@
 	align-items: center;
 	justify-content: center;
 	height: 110px;
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+	top: 0;
 	background: dodgerblue linear-gradient(45deg, aqua, dodgerblue, deeppink) fixed;
 	input {
 		width: 300px;

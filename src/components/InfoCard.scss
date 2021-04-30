@@ -1,0 +1,33 @@
+@import './Card.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
+
+.InfoCard {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: 450px;
+	flex-wrap: wrap;
+
+	div:first-child {
+		background-color: white;
+		@extend %img-container;
+	}
+	div:nth-child(2) {
+		@extend %text-content;
+		@media (max-width: 900px) {
+			font-size: 80%;
+		}
+		button {
+			@include MoreInfoButton();
+			@extend %button-align;
+		}
+		p {
+			font-size: 25px;
+		}
+	}
+	div:last-child {
+		align-self: flex-end;
+		flex-shrink: 1;
+		font-family: 'Raleway', sans-serif;
+	}
+}

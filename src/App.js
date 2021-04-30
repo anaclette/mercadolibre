@@ -74,13 +74,13 @@ const App = () => {
 
 	return (
 		<div>
-			<Logo logo={LogoImg} />
 			<Search
 				handleSubmit={handleSubmit}
 				inputValue={value}
 				handleClick={handleClick}
 				handleOnChange={handleOnChange}
 			/>
+			<Logo logo={LogoImg} />
 			<section className="Content">
 				<div className="Filters">
 					<ShippingCheckbox />

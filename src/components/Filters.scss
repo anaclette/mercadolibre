@@ -2,38 +2,39 @@
 
 .Content {
 	display: flex;
-	margin-top: 50px;
+	margin-top: 150px;
+	max-height: 700px;
+
 	.Filters {
 		display: flex;
 		color: white;
 		flex-direction: column;
-		height: 800px;
+		height: 500px;
 		justify-content: flex-start;
 		line-height: 70px;
 		padding: 20px;
 		margin: 12px;
 		border-radius: 5px;
 		font-family: 'Raleway', sans-serif;
-		// flex-basis: 240px;
-		background-color: rgba(167, 97, 200, 0.904);
-		@media (max-width: 600px) {
-			// width: 100px;
-			font-size: 12px;
+		flex-basis: 150px;
+		background-color: rgb(111, 175, 240);
+		@media (max-width: 900px) {
+			// font-size: 12px;
 		}
 		select {
 			display: flex;
 			flex-direction: column;
 			padding: 7px;
-			width: 220px;
+			flex-basis: 100px;
 			border: 0;
-			outline: 1px solid rgb(185, 90, 230);
+			outline: 1px solid rgb(111, 175, 240);
 			border-radius: 5px;
 			background-color: rgb(207, 204, 204);
 			color: black;
 			font-size: 18px;
 			font-family: 'Raleway', sans-serif;
-			@media (max-width: 600px) {
-				width: 100px;
+			@media (max-width: 900px) {
+				// width: 100px;
 				font-size: 15px;
 				padding: 5px;
 			}

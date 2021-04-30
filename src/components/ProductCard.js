@@ -1,12 +1,9 @@
 import FreeShipping from './FreeShipping';
 import FreeShippingLogo from './Free-shipping.png';
+import MoreInfoButton from './MoreInfoButton';
 import './FreeShipping.scss';
 
 const Card = ({ product, handleClickInfo, id }) => {
-	const handleClick = () => {
-		handleClickInfo(id);
-	};
-
 	return (
 		<div className="Card">
 			<div>
@@ -15,7 +12,7 @@ const Card = ({ product, handleClickInfo, id }) => {
 			</div>
 			<h2>{product.title}</h2>
 			<p>${product.price}</p>
-			<button onClick={handleClick}>Ver más</button>
+			<MoreInfoButton handleClickInfo={handleClickInfo} id={id} />
 		</div>
 	);
 };
