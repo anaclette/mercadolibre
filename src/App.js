@@ -61,7 +61,7 @@ const App = () => {
 	};
 
 	// useEffect(() => {
-	// 	fetch(`https://api.mercadolibre.com/items/${id}description`).then((res) => res.json()).then((info) => {
+	// 	fetch(`https://api.mercadolibre.com/items/${id}/description`).then((res) => res.json()).then((info) => {
 	// 		setView(info);
 	// 	}, [ id, view ]);
 	// });

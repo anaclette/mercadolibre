@@ -22,7 +22,8 @@
 }
 
 %img-container {
-	height: 250px;
+	min-height: 200px;
+	max-height: 200px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -47,6 +48,7 @@
 
 .Card {
 	flex-basis: 300px;
+	max-width: 300px;
 	background-color: white;
 	z-index: 1;
 	@extend %text-content;
@@ -63,7 +65,7 @@
 		font-size: 15px;
 	}
 	p {
-		padding: 20px;
+		// padding: 20px;
 		height: 30px;
 		font-size: 27px;
 	}
