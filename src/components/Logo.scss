@@ -6,13 +6,14 @@
 	bottom: 5px;
 	top: 5px;
 	@media (max-width: 600px) {
-		position: relative;
-		opacity: 0.3;
-		justify-content: center;
+		top: 12px;
 	}
 	img {
 		border-radius: 10%;
 		width: 100px;
 		position: absolute;
+		@media (max-width: 600px) {
+			width: 80px;
+		}
 	}
 }

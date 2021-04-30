@@ -8,7 +8,7 @@ const Card = ({ product, handleClickInfo, id }) => {
 	};
 
 	return (
-		<div id={id} className="Card">
+		<div className="Card">
 			<div>
 				<img alt={product.title} src={product.thumbnail} />
 				{product.shipping.free_shipping === true && <FreeShipping logo={FreeShippingLogo} />}

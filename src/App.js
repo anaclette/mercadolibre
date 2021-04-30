@@ -1,29 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import Card from './components/ProductCard';
+import Results from './components/Results';
 import Search from './components/Search';
 import Logo from './components/Logo';
-import Details from './components/Details';
+import Detail from './components/Detail';
 import LogoImg from './components/LogoML.png';
+import ShippingCheckbox from './components/ShippingCheckbox';
+import LocationOptions from './components/LocationOptions';
 import './App.css';
 import './components/Search.scss';
 import './components/Card.scss';
 import './components/Logo.scss';
+import './components/Filters.scss';
 
 const App = () => {
+	// const [ loading, setLoading ] = useState(false);
 	const [ products, setProducts ] = useState([]);
 	const [ search, setSearch ] = useState('');
 	const [ value, setValue ] = useState('');
 	const [ id, setId ] = useState('');
 	const [ view, setView ] = useState('search');
-	// const [ cardDetails, setCardDetails ] = useState('');
-
+	const [ cardDetail, setCardDetail ] = useState('');
+	// const [ description, setDescription ] = useState('');
+	// const [ filteredProdcuts, setFilteredProducts ] = useState([]);
+	// const [ location, setLocation ] = useState([]);
 	useEffect(
 		() => {
+			// setLoading(true);
 			fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${value}`).then((res) => res.json()).then((info) => {
 				setProducts(info.results);
 			});
+			// setLoading(false);
 		},
-		[ search, id ]
+		[ search ]
 	);
 
 	const handleClick = () => {
@@ -32,27 +40,36 @@ const App = () => {
 
 	const handleOnChange = (e) => {
 		e.preventDefault();
-		// console.log('estas buscando', e.target.value);
 		setValue(e.target.value);
 	};
+
+	useEffect(
+		() => {
+			fetch(`https://api.mercadolibre.com/items/${id}`).then((res) => res.json()).then((info) => {
+				setCardDetail(info);
+			});
+		},
+		[ id ]
+	);
 
 	const handleClickInfo = (id) => {
 		setId(id);
 		setView('detail');
 	};
 
-	// useEffect(
-	// 	() => {
-	// 		fetch(`https://api.mercadolibre.com/items/${id}`).then((res) => res.json()).then((info) => {
-	// 			setCardDetails(info.results);
-	// 		});
-	// 	},
-	// 	[ id ]
-	// );
+	// useEffect(() => {
+	// 	fetch(`https://api.mercadolibre.com/items/${id}description`).then((res) => res.json()).then((info) => {
+	// 		setView(info);
+	// 	}, [ view ]);
+	// });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSearch(value);
+	};
+
+	const handleChangeSelect = () => {
+		console.log('Filtrando por provincia');
 	};
 
 	return (
@@ -64,15 +81,16 @@ const App = () => {
 				handleClick={handleClick}
 				handleOnChange={handleOnChange}
 			/>
-			<div className="App">
-				{products.map((product) => {
-					return view === 'search' ? (
-						<Card handleClickInfo={handleClickInfo} key={product.id} product={product} />
-					) : (
-						<Details key={product.id} id={product.id} />
-					);
-				})};
-			</div>
+			<section className="Content">
+				<div className="Filters">
+					<ShippingCheckbox />
+					<LocationOptions handleChangeSelect={handleChangeSelect} />
+				</div>
+				<div className="App">
+					{view === 'search' && <Results products={products} handleClickInfo={handleClickInfo} />}
+					{view === 'detail' && <Detail cardDetail={cardDetail} />}
+				</div>
+			</section>
 		</div>
 	);
 };

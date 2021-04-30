@@ -15,6 +15,11 @@
 		font-size: 27px;
 		color: rgb(17, 83, 148);
 
+		@media (max-width: 600px) {
+			width: 180px;
+			margin: 0;
+		}
+
 		&:focus {
 			outline: none;
 			border-bottom: 2px solid deeppink;
@@ -42,6 +47,9 @@
 		&:hover {
 			letter-spacing: 1px;
 		}
+	}
+	@media (max-width: 600px) {
+		justify-content: flex-end;
 	}
 	@media (min-width: 600px) and (max-width: 900px) {
 		justify-content: flex-end;
