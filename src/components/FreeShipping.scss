@@ -1,5 +1,7 @@
 .FreeShipping {
+	display: flex;
 	img {
+		align-self: flex-end;
 		width: 50px;
 		border-radius: 200px;
 	}
