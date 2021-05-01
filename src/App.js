@@ -23,7 +23,7 @@ const App = () => {
 	const [ id, setId ] = useState('');
 	const [ view, setView ] = useState('search');
 	const [ cardDetail, setCardDetail ] = useState('');
-	// const [ description, setDescription ] = useState('');
+	const [ description, setDescription ] = useState('');
 	// const [ filteredProdcuts, setFilteredProducts ] = useState([]);
 	// const [ location, setLocation ] = useState([]);
 	useEffect(
@@ -37,14 +37,14 @@ const App = () => {
 		[ search ]
 	);
 
-	const handleClick = () => {
-		setSearch(value);
-	};
-
-	const handleOnChange = (e) => {
-		e.preventDefault();
-		setValue(e.target.value);
-	};
+	useEffect(
+		() => {
+			fetch(`https://api.mercadolibre.com/items/${id}/description`).then((res) => res.json()).then((info) => {
+				setDescription(info);
+			});
+		},
+		[ id, view ]
+	);
 
 	useEffect(
 		() => {
@@ -55,16 +55,19 @@ const App = () => {
 		[ id ]
 	);
 
+	const handleClick = () => {
+		setSearch(value);
+	};
+
+	const handleOnChange = (e) => {
+		e.preventDefault();
+		setValue(e.target.value);
+	};
+
 	const handleClickInfo = (id) => {
 		setId(id);
 		setView('detail');
 	};
-
-	// useEffect(() => {
-	// 	fetch(`https://api.mercadolibre.com/items/${id}/description`).then((res) => res.json()).then((info) => {
-	// 		setView(info);
-	// 	}, [ id, view ]);
-	// });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -94,7 +97,7 @@ const App = () => {
 				</div>
 				<div className="App">
 					{view === 'search' && <Results products={products} handleClickInfo={handleClickInfo} />}
-					{view === 'detail' && <Detail cardDetail={cardDetail} />}
+					{view === 'detail' && <Detail description={description} cardDetail={cardDetail} />}
 				</div>
 			</section>
 		</div>
