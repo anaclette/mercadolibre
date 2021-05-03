@@ -10,7 +10,7 @@
 	z-index: 3;
 	width: 100%;
 	top: 0;
-	background: #e3d26f linear-gradient(45deg, #ea9010, #e3d26f, #a15e49) fixed;
+	background: linear-gradient(45deg, #fff689, #e3d26f, #d9d2b6) fixed;
 	input {
 		width: 300px;
 		padding: 8px;
@@ -40,7 +40,7 @@
 		cursor: pointer;
 		border-radius: 8%;
 		font-weight: bold;
-		box-shadow: 5px 5px #b1afaf;
+		box-shadow: 5px 5px #a15e49;
 		border: 0;
 		font-family: 'Nanum Pen Script', cursive;
 		&:active {

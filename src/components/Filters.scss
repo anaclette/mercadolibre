@@ -2,9 +2,9 @@
 
 @mixin input-style {
 	border: 0;
-	outline: 1px solid #a15e49;
+	outline: 1px solid #e3d26f;
 	border-radius: 5px;
-	color: black;
+	color: #161b33;
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -19,13 +19,12 @@
 	padding-top: 100px;
 	.Filters {
 		display: flex;
-		color: white;
 		flex-direction: column;
 		justify-content: flex-start;
 		padding: 20px;
 		font-family: 'Raleway', sans-serif;
 		flex-basis: 150px;
-		background-color: #a15e49;
+		background-color: #e3d26f;
 		@media (max-width: 600px) {
 			width: 100px;
 		}
