@@ -2,12 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
 
 .InfoCard {
-	width: 100%;
 	display: flex;
 	align-items: center;
-	height: 450px;
 	flex-wrap: wrap;
-
 	div:first-child {
 		background-color: white;
 		@extend %img-container;
@@ -29,5 +26,11 @@
 		align-self: flex-end;
 		flex-shrink: 1;
 		font-family: 'Raleway', sans-serif;
+		p {
+			color: #161b33;
+			text-align: justify;
+			letter-spacing: 1px;
+			font-weight: bold;
+		}
 	}
 }

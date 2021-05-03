@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background-color: rgb(196, 221, 241);
+	background-color: #e3d26f;
 }
 .App {
 	display: flex;
@@ -9,4 +9,10 @@ body {
 	border-radius: 5px;
 	justify-content: center;
 	flex: 1 1 600px;
+}
+
+@media (max-width: 600px) {
+	.App {
+		margin: 2px;
+	}
 }

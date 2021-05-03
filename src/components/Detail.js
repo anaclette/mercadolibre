@@ -9,7 +9,7 @@ const Detail = ({ cardDetail, description }) => {
 			</div>
 			<div>
 				<h2>{cardDetail.title}</h2>
-				<p>{cardDetail.price}</p>
+				<p>${cardDetail.price}</p>
 				<MoreInfoButton />
 			</div>
 			<div>
